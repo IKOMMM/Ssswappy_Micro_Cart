@@ -32,7 +32,7 @@ public class CarHandler : MonoBehaviour
     {
         if(other.tag == "Enemy")//other.CompaerTag("Enenemy")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }
