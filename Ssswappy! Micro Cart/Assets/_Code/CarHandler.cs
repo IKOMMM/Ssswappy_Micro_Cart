@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarHandler : MonoBehaviour
 {
@@ -24,5 +25,13 @@ public class CarHandler : MonoBehaviour
     public void Steer(int value)
     {
         steerValue = value;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")//other.CompaerTag("Enenemy")
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
