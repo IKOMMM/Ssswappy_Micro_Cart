@@ -15,11 +15,12 @@ public class CarHandler : MonoBehaviour
         
     void Update()
     {
-        //Speed Increase
-        carSpeed += carSpeedIncrease * Time.deltaTime;
-        transform.Translate(Vector3.forward * carSpeed * Time.deltaTime);
         //Car Rotation
         transform.Rotate(0f, steerValue * carSteerValue * Time.deltaTime, 0f);
+
+        //Speed Increase
+        carSpeed += carSpeedIncrease * Time.deltaTime;
+        transform.Translate(Vector3.forward * carSpeed * Time.deltaTime);        
     }
 
     public void Steer(int value)
