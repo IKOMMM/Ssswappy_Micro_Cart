@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CartWithSwappy
       objectReference: {fileID: 0}
+    - target: {fileID: 7822777056967350023, guid: 214b7518f6fe76e4999ee49f44c66e4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214b7518f6fe76e4999ee49f44c66e4d, type: 3}
 --- !u!1 &356849039
@@ -208,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &356849040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -455,6 +459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 463825102}
+  energyText: {fileID: 636627851}
+  maxEnergy: 7
+  energyRechargeDuration: 1
 --- !u!1 &636627849
 GameObject:
   m_ObjectHideFlags: 0
