@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -9,11 +7,13 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private float scoreMultiplier;
 
     public const string HighScoreKey = "HighScore";
+
     private float score;
 
     void Update()
     {
         score += Time.deltaTime * scoreMultiplier;
+
         scoreText.text = Mathf.FloorToInt(score).ToString();
     }
 
@@ -27,3 +27,4 @@ public class ScoreSystem : MonoBehaviour
         }
     }
 }
+

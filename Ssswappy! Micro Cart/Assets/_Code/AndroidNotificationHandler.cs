@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_ANDROID
 using Unity.Notifications.Android;
@@ -9,14 +7,15 @@ using Unity.Notifications.Android;
 public class AndroidNotificationHandler : MonoBehaviour
 {
 #if UNITY_ANDROID
-    private const string ChannelID = "Notification_Channel";
+    private const string ChannelId = "notification_channel";
+
     public void ScheduleNotification(DateTime dateTime)
     {
         AndroidNotificationChannel notificationChannel = new AndroidNotificationChannel
         {
-            Id = ChannelID,
-            Name = "Notification_Channel",
-            Description = "Notification channel description",
+            Id = ChannelId,
+            Name = "Notification Channel",
+            Description = "Description",
             Importance = Importance.Default
         };
 
@@ -25,13 +24,14 @@ public class AndroidNotificationHandler : MonoBehaviour
         AndroidNotification notification = new AndroidNotification
         {
             Title = "Fuel Recharged!",
-            Text = "Fuel recharged, come back and play again!",
+            Text = "Your fuel has been recharged, come back to play again!",
             SmallIcon = "default",
             LargeIcon = "default",
             FireTime = dateTime
         };
 
-        AndroidNotificationCenter.SendNotification(notification, ChannelID);
+        AndroidNotificationCenter.SendNotification(notification, ChannelId);
     }
 #endif
+
 }

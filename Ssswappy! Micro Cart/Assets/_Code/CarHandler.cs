@@ -5,22 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class CarHandler : MonoBehaviour
 {
-    [SerializeField] private float carSpeed = 10f;
-    [SerializeField] private float carSpeedIncrease = 0.15f;
 
-    [SerializeField] private int carSteerValue = 250;
-    [SerializeField] private int steerValue = 250;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speedGainPerSecond = 0.2f;
+    [SerializeField] private float turnSpeed = 200f;
 
+    private int steerValue;
 
         
     void Update()
     {
-        //Car Rotation
-        transform.Rotate(0f, steerValue * carSteerValue * Time.deltaTime, 0f);
+        speed += speedGainPerSecond * Time.deltaTime;//Speed Increase
 
-        //Speed Increase
-        carSpeed += carSpeedIncrease * Time.deltaTime;
-        transform.Translate(Vector3.forward * carSpeed * Time.deltaTime);        
+        transform.Rotate(0f, steerValue * turnSpeed * Time.deltaTime, 0f); //Car Rotation
+
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);    
     }
 
     public void Steer(int value)
@@ -30,7 +29,8 @@ public class CarHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")//other.CompaerTag("Enenemy")
+
+        if (other.CompareTag("Enemy"))//other.CompaerTag("Enenemy")
         {
             SceneManager.LoadScene(0);
         }
